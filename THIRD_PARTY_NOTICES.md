@@ -2,7 +2,7 @@
 
 ## Font
 
-`public/assets/fonts/Outfit.ttf` is the original unmodified Outfit variable font, under the SIL Open Font License 1.1. Full copyright and license text: `public/assets/fonts/Outfit-OFL.txt`.
+`public/assets/fonts/Outfit.ttf` is the original unmodified Outfit variable font, under the SIL Open Font License 1.1. A WOFF2 delivery version is generated using FontTools; the original design and font source are retained. Full copyright and license text: `public/assets/fonts/Outfit-OFL.txt`.
 
 ## Brand artwork
 

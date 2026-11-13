@@ -6,7 +6,7 @@ Recommended setup: GitHub Pages for the open-source browser project website, Nam
 
 When this setup was prepared, only the landing repository was visible under Crescent-Browser and its Pages site was not enabled. The local browser checkout points to a repository that returns 404. The intended release source is `Crescent-Browser/crescent-browser`; establish that repository and its publication/license boundary before enabling installer publication. No installer releases or Windows/Linux distribution readiness are asserted.
 
-The workflow and OS-aware download UI are implemented. The owner approved commit/push and publication at `https://crescent-browser.github.io/crescent-landing/`. No domain was purchased, DNS modified, signing secret read, or signing key created. Pages deployment runs only when repository variable `PAGES_ENABLED` equals `true` and Pages is configured with GitHub Actions.
+The workflow and OS-aware download UI are implemented. The owner approved commit/push and publication at `https://crescent-browser.github.io/crescent-landing/`. The owner purchased `crescentbrowser.com` and authorized its setup. The Pages custom domain is now configured; the owner entered Namecheap DNS records from their laptop. No signing secret was read or signing key created. Pages deployment runs only when repository variable `PAGES_ENABLED` equals `true` and Pages is configured with GitHub Actions.
 
 ## Domain recommendation (checked 2026-11-13)
 
@@ -27,7 +27,7 @@ After owner approval, commit/push the landing source and workflow. In repository
 
 PRs run release-routing tests, asset validation and the build without deployment. Main pushes, manual dispatches and the hourly schedule refresh the public release catalog, validate/build, then deploy only when enabled. Actions are pinned to verified upstream commit SHAs. Deployment uses the standard Pages OIDC permissions; no Namecheap or Cloudflare secret is needed.
 
-## Add the purchased domain later
+## Purchased-domain configuration
 
 1. Verify ownership of the domain under the GitHub organization using the TXT value GitHub provides. Do not invent or reuse another domain's verification token.
 2. Add the custom domain in the landing repository's Pages settings before pointing DNS at it. This is independent of a CNAME file when using a custom Actions workflow.
@@ -39,7 +39,7 @@ PRs run release-routing tests, asset validation and the build without deployment
 4. Set `www` CNAME to `crescent-browser.github.io` (the organization host, without a URL scheme or repository path). Remove only conflicting parking/redirect records for those exact hosts; preserve mail and unrelated DNS records.
 5. Wait for GitHub's DNS check/certificate, then enable Enforce HTTPS. GitHub can redirect between the configured apex and www domains. Do not add wildcard DNS for Pages.
 
-Use the current GitHub instructions again when making the change: https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https . No placeholder domain/CNAME is committed before purchase and ownership verification.
+Use the current GitHub instructions again when making the change: https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https . The purchased domain is recorded in `public/CNAME`; organization-level Pages ownership verification remains a separate step using the exact TXT challenge supplied by GitHub.
 
 ## Installer handoff
 
@@ -54,3 +54,13 @@ After publishing a verified browser release, manually dispatch the landing workf
 ## Validation
 
 Run `npm run test:releases`, `npm run check`, and `npm run build`. Release-routing tests cover missing platforms, unknown CPU, mobile devices, drafts, malformed URLs, missing digests, and source-only releases. They do not certify a real native installer or signature.
+
+## Custom domain and search setup
+
+Canonical origin: `https://crescentbrowser.com/`. The apex uses GitHub Pages’ four A records and `www` is a CNAME to `crescent-browser.github.io`. GitHub Pages owns apex/www redirects and certificate provisioning. The Pages API setting is authoritative for this Actions deployment; `public/CNAME` documents the intended domain.
+
+The production site includes canonical URLs, crawlable product copy, unique page metadata, Organization/WebSite/WebPage JSON-LD, a root sitemap and robots file, a branded 404 page, 96px/192px icons, and a 1200×630 social-sharing image. It uses local WOFF2 font delivery and content-addressed CSS/JavaScript. No analytics or external runtime scripts were added.
+
+Google Search Console: add the **Domain** property `crescentbrowser.com`, publish the exact TXT record Google supplies at Namecheap, verify ownership, and submit `https://crescentbrowser.com/sitemap.xml`. Use URL Inspection on the homepage after HTTPS is ready. Bing Webmaster Tools can import a verified Search Console property. These account-level steps require the owner’s signed-in laptop session and must not be reported complete without evidence.
+
+Indexing and ranking are controlled by search engines. No ranking position, indexing date, fabricated software ratings, or nonexistent download offers are claimed. Software-app rich-result markup is intentionally omitted until verified release/offer/review data supports it.

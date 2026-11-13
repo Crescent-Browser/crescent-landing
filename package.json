@@ -9,7 +9,8 @@
     "build": "node tools/build.mjs",
     "check": "node tools/check.mjs",
     "sync:releases": "node tools/sync-releases.mjs",
-    "test:releases": "node --test tests/releases.test.mjs"
+    "test:releases": "node --test tests/releases.test.mjs",
+    "check:seo": "node tools/check-seo.mjs"
   },
   "engines": {
     "node": ">=22"

@@ -1,5 +1,7 @@
 # Crescent landing page
 
+Official website: https://crescentbrowser.com/
+
 The approved Crescent Browser landing page: Playground’s pink/lavender visual direction, the “Bring back the joy of browsing” headline, the Prism mark, and locally bundled Outfit typography.
 
 ## Develop and build
@@ -10,10 +12,11 @@ Requires Node.js 22+. No dependencies or installation step.
 npm run dev
 # http://127.0.0.1:4173
 npm run check
+npm run check:seo
 npm run build
 ```
 
-`public/` is the website source. `dist/` is the static build. Production HTML uses content-addressed script and stylesheet filenames to avoid stale assets after a deployment; original paths remain available for cached older pages. The development server binds only to loopback. GitHub Pages deployment is configured in `.github/workflows/pages.yml`. A custom domain has not been configured.
+`public/` is the website source. `dist/` is the static build. Production HTML uses content-addressed script and stylesheet filenames to avoid stale assets after a deployment; original paths remain available for cached older pages. The development server binds only to loopback. GitHub Pages deployment is configured in `.github/workflows/pages.yml`. The custom domain is `https://crescentbrowser.com/`.
 
 ## Source layout
 
@@ -40,4 +43,4 @@ See [asset and claim provenance](docs/provenance.md) and [third-party notices](T
 
 ## Hosting and installer downloads
 
-The GitHub Pages workflow, same-origin release catalog, and OS-aware download buttons are prepared. See [hosting and domain setup](docs/hosting.md). Run `npm run test:releases` for the distribution-boundary checks and `npm run sync:releases` to refresh the catalog. Deployment is gated by `PAGES_ENABLED`; the owner approved publication to the temporary GitHub Pages URL.
+The GitHub Pages workflow, same-origin release catalog, and OS-aware download buttons are prepared. See [hosting and domain setup](docs/hosting.md). Run `npm run test:releases` for the distribution-boundary checks and `npm run sync:releases` to refresh the catalog. Deployment is gated by `PAGES_ENABLED`; the owner approved publication and setup of `crescentbrowser.com`.

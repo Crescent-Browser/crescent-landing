@@ -5,7 +5,7 @@ Updated 2026-11-13. The owner-approved landing design is now the production sour
 ## Assets
 
 - Crescent mark and favicon: original Prism artwork from the browser workspace (`research/design/prism-apply/icons/mark-spectrum-1024.png` and `favicon-spectrum-32.png`).
-- Outfit: original unmodified variable font from the public Google Fonts collection. Source: https://raw.githubusercontent.com/google/fonts/main/ofl/outfit/Outfit%5Bwght%5D.ttf. Full OFL text is bundled beside it.
+- Outfit: the original variable font is retained, with a WOFF2 delivery version generated using FontTools without design changes. Original font from the public Google Fonts collection. Source: https://raw.githubusercontent.com/google/fonts/main/ofl/outfit/Outfit%5Bwght%5D.ttf. Full OFL text is bundled beside it.
 - Sixteen application/network marks: retrieved with Open Brand Assets’ `find-brand-logo` workflow from SVGL and Gilbarbara Logos. The public source manifest, original variants, hashes, dates, and usage notes are retained under `public/assets/brands/`.
 - Additional migration/platform marks: Arc, Chrome, Zen, Firefox, Android, and Apple from SVGL revision `90f6de7026c5e75a9014dbf1f422792bd40b1802`; Dia from its official website favicon. Artwork is preserved unchanged, with per-file hashes and URLs in the source manifest.
 - Google: Devicon v2.17.0, https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/google/google-original.svg . Its MIT notice remains bundled.
@@ -26,8 +26,12 @@ The browser uses Chromium’s full browser foundation. Desktop scope includes ma
 
 Crescent Mobile, same-account continuity, secure pairing, personal Hub transport, and Crescent Cloud are in development. Tailscale represents an optional network path around a personal Hub, not a deployed integration. Cookies and site storage never sync. No cloud-synced article library, AI integration, or comparative speed claim is advertised. The final browser license remains under completion. iOS feasibility under the no-WebKit constraint is unresolved.
 
-The website does not collect data or perform real sync, migration, sign-in, or pairing. The owner approved GitHub Pages hosting at the temporary project URL. A custom domain and DNS remain unconfigured.
+The website does not collect data or perform real sync, migration, sign-in, or pairing. The owner approved GitHub Pages hosting at the temporary project URL. The owner subsequently purchased `crescentbrowser.com` and authorized custom-domain configuration and SEO work. DNS was entered by the owner in their Namecheap account.
 
 ## References
 
 Zigzag (https://zigzagbrowser.com/) and Dia (https://www.diabrowser.com/) informed the information hierarchy and product storytelling. No source code, screenshots, or artwork from those landing pages is included.
+
+## Search and sharing
+
+The 1200×630 social card is an original code-composed graphic using the existing Prism mark, Outfit font, and landing colors. Favicon/search/touch sizes derive from the same original mark. Metadata and JSON-LD describe the public project and website; no fabricated ratings, offers, release versions, or installed-platform availability are included.
