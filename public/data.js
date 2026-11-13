@@ -1122,6 +1122,13 @@ window.CrescentNativeThemes = [
   }
 ];
 window.CrescentBrandAssets = {
+  "arc-browser": "assets/brands/arc-browser.svg",
+  "chrome": "assets/brands/chrome.svg",
+  "zen-browser": "assets/brands/zen-browser.svg",
+  "dia": "assets/brands/dia.svg",
+  "firefox": "assets/brands/firefox.svg",
+  "android": "assets/brands/android.svg",
+  "apple": "assets/brands/apple.svg",
   "github": "assets/brands/github.svg",
   "linear": "assets/brands/linear.svg",
   "slack": "assets/brands/slack.svg",

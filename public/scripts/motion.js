@@ -11,6 +11,7 @@
   }
   const reduce = matchMedia("(prefers-reduced-motion: reduce)");
   const hero = document.querySelector(".product-composition");
+  const wideHero = matchMedia("(min-width: 761px)");
   const lab = document.querySelector(".mobile-lab-frame");
   const dialog = document.querySelector("#mobile-dialog");
   const reveals = [
@@ -143,7 +144,7 @@
         bottom: sceneRect.bottom - offset,
       };
       const within = clamp((height * 0.94 - rect.top) / (height * 0.34));
-      const raw = reduce.matches
+      const raw = reduce.matches || (item.hero && wideHero.matches)
         ? 1
         : Math.min(within, item.hero ? topGate : 1);
       const progress = ease(raw);
@@ -221,6 +222,7 @@
   (scrollHost || window).addEventListener("scroll", queueReveal, {
     passive: true,
   });
+  wideHero.addEventListener("change", queueReveal);
   addEventListener("resize", queueReveal, { passive: true });
   addEventListener("load", queueReveal, { once: true });
   document.fonts.ready.then(queueReveal);

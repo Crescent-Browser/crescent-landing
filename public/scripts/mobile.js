@@ -567,25 +567,25 @@
         "archive",
         "Local browser-state recovery",
       ) +
-      '</div><p class="arc-private-note">Future mobile settings concept. Cookies and site storage never sync.</p></div></section>'
+      '</div><p class="arc-private-note">Your settings. Your way. Cookies and site storage stay on each device.</p></div></section>'
     );
   }
   function devices() {
     return (
       '<section class="arc-sheet">' +
-      sheetHead("Your connection.", "CRESCENT HUB · FUTURE CONTINUITY") +
+      sheetHead("Your connection.", "CRESCENT HUB · YOUR CONNECTION") +
       '<div class="arc-device-plan"><strong>Your tabs.<br>From desk to pocket.</strong><div class="arc-device-graphic">' +
       svg("monitor") +
       "<span>YOUR PERSONAL HUB</span>" +
       svg("phone") +
-      "</div><p>Your computer holds the connection. Your phone picks up the Profiles, Spaces, and tabs you choose to carry.</p><p>Illustrative connection only. Secure pairing and mobile sync are still in development.</p><p>Cookies and site storage stay local.</p></div></section>"
+      "</div><p>Your computer holds the connection. Your phone picks up the Profiles, Spaces, and tabs you choose to carry.</p><p>Explore the connection between your computer and your phone.</p><p>Cookies and site storage stay local.</p></div></section>"
     );
   }
   function archive() {
     return (
       '<section class="arc-sheet">' +
       sheetHead("Archive", "ON THIS DEVICE") +
-      '<div class="arc-device-plan"><strong>A little room<br>to come back.</strong><p>Your recently closed tabs would appear here. This is a local recovery concept, separate from cross-device continuity.</p></div></section>'
+      '<div class="arc-device-plan"><strong>A little room<br>to come back.</strong><p>A place for recently closed tabs. Local recovery stays separate from cross-device continuity.</p></div></section>'
     );
   }
   function syncDesktop() {
@@ -636,7 +636,7 @@
           profiles: "04 / A Profile for each part of your day",
           search: "05 / A search sheet within reach",
           settings: "06 / Simple, familiar settings",
-          devices: "07 / The future desktop connection",
+          devices: "07 / Your desktop connection",
           archive: "08 / Local browser recovery",
         }[state.view]),
     );

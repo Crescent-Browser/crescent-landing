@@ -13,7 +13,9 @@ Sixteen supplied SVGs were retrieved through the Open Brand Assets `find-brand-l
 - The retained Google mark is from Devicon v2.17.0. Full notice: `public/assets/brands/DEVICON-LICENSE.txt`.
 - Open Brand Assets code/skill notice: `public/assets/brands/OPEN-BRAND-ASSETS-LICENSE.txt`.
 
-Collection licenses do not transfer vendor trademark rights. Marks identify example websites inside fictional browser interfaces; no partnership, endorsement, or integration support is asserted. The source manifest retains applicable usage conditions. No logos are generated, redrawn, or recolored.
+Collection licenses do not transfer vendor trademark rights. Marks identify example websites inside fictional browser interfaces; no partnership, endorsement, or integration support is asserted. The source manifest retains applicable usage conditions.
+
+Six additional browser/platform SVGs (Arc, Chrome, Zen, Firefox, Android, and Apple) come from SVGL revision `90f6de7026c5e75a9014dbf1f422792bd40b1802`, covered by the bundled SVGL notice. Dia’s original favicon comes from https://www.diabrowser.com/favicon.svg for editorial identification; no collection license or vendor endorsement is claimed. These files are also preserved byte-for-byte and recorded in the manifest. No logos are generated, redrawn, or recolored.
 
 ## Original Crescent work
 
@@ -21,7 +23,7 @@ The Prism mark and favicon are original Crescent artwork. Browser and phone scre
 
 ## Names and platforms
 
-Product and platform marks belong to their respective owners. Crescent is independent of The Browser Company. The OS symbols identify the desktop scope and do not establish installer availability or endorsement.
+Product and platform marks belong to their respective owners. Crescent is independent of The Browser Company. The OS symbols identify the desktop and mobile scope and do not establish installer availability or endorsement.
 
 ## Project licensing
 

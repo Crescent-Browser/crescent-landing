@@ -7,6 +7,7 @@ Updated 2026-11-13. The owner-approved landing design is now the production sour
 - Crescent mark and favicon: original Prism artwork from the browser workspace (`research/design/prism-apply/icons/mark-spectrum-1024.png` and `favicon-spectrum-32.png`).
 - Outfit: original unmodified variable font from the public Google Fonts collection. Source: https://raw.githubusercontent.com/google/fonts/main/ofl/outfit/Outfit%5Bwght%5D.ttf. Full OFL text is bundled beside it.
 - Sixteen application/network marks: retrieved with Open Brand Assets’ `find-brand-logo` workflow from SVGL and Gilbarbara Logos. The public source manifest, original variants, hashes, dates, and usage notes are retained under `public/assets/brands/`.
+- Additional migration/platform marks: Arc, Chrome, Zen, Firefox, Android, and Apple from SVGL revision `90f6de7026c5e75a9014dbf1f422792bd40b1802`; Dia from its official website favicon. Artwork is preserved unchanged, with per-file hashes and URLs in the source manifest.
 - Google: Devicon v2.17.0, https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/google/google-original.svg . Its MIT notice remains bundled.
 
 Only the selected Outfit font and assets used by the production page are retained. Native development captures, abandoned fonts, standalone review artifacts, and screenshot fixtures have been removed.
@@ -16,6 +17,8 @@ Only the selected Outfit font and assets used by the production page are retaine
 All browser, phone, account, article, import, and connection examples are synthetic HTML/CSS illustrations. The Medium, GitHub, and Figma examples do not copy those sites’ pages. The owner’s Arc Search screenshots informed structure only; no personal browsing or source images are included.
 
 Native theme colors come from the pure C++ resolver. Prism ports the seeded native facet algorithm and current expanded-sidebar layout policy. `docs/theme-provenance.json` retains implementation hashes and rendering parameters. The phone adaptation remains a proposal.
+
+The landing uses evergreen presentation copy. Wide desktop hero devices are visible at page load and retain their floating motion. Browser-specific migration windows and five platform choices are interactive illustrations. No new product-release evidence is implied by these presentation changes.
 
 ## Product boundaries
 
