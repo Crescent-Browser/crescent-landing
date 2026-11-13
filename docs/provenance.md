@@ -46,4 +46,11 @@ Zigzag (https://zigzagbrowser.com/) and Dia (https://www.diabrowser.com/) inform
 
 ## Search and sharing
 
-The 1200×630 social card is an original code-composed graphic using the existing Prism mark, Outfit font, and landing colors. Favicon/search/touch sizes derive from the same original mark. Metadata and JSON-LD describe the public project and website; no fabricated ratings, offers, release versions, or installed-platform availability are included.
+The 1200×630 social card started as an original code-composed graphic using the existing Prism mark, Outfit font, and landing colors. Its wordmark was changed to “Crescent Browser” with the built-in image generation tool on 2026-11-13, using the original card as the edit target, then resized to its existing delivery dimensions. The separate Prism logo assets are unchanged. Favicon/search/touch sizes derive from the same original mark. Metadata and JSON-LD describe the public project and website; no fabricated ratings, offers, release versions, or installed-platform availability are included.
+
+
+### Sharing image edit prompt
+
+Mode: built-in image generation, existing-image edit. Saved asset: `public/assets/crescent-social.png`.
+
+> Use case: text-localization. Edit target: the supplied Crescent Browser website social-sharing graphic. Change ONLY the small upper-left wordmark text from the lowercase word "crescent" to the exact text "Crescent Browser" (capital C, capital B, all other letters lowercase). Keep the same heavy rounded geometric Outfit-style font, dark purple ink, baseline, left position beside the small faceted crescent logo, and similar size. There is enough free horizontal space to extend the wordmark to the right. Preserve every other element as exactly as possible: the pale pink background, original faceted crescent artwork in both positions, the purple rounded right-side shape and peach circle, the headline "Bring back / the joy of / browsing.", the line "An open-source Chromium browser.", the URL "crescentbrowser.com", all colors, alignment, proportions and spacing. Keep the original 1200 by 630 pixel landscape canvas and composition. No new graphics, no extra text, no watermark. This is a precise existing-brand wordmark correction, not a redesign.
