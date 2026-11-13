@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f7f2" />
+    <meta
+      name="description"
+      content="Meet Crescent. A Chromium browser with a familiar sidebar, room to focus, and an open-source future. In development for macOS, Windows, and Linux."
+    />
+    <meta
+      property="og:title"
+      content="Crescent — Your browser. On your terms."
+    />
+    <meta
+      property="og:description"
+      content="A familiar flow. A freer future. Meet the browser being built for people who love the web."
+    />
+    <meta property="og:type" content="website" />
+    <title>Crescent — Your browser. On your terms.</title>
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
+    <link
+      rel="preload"
+      href="assets/fonts/Geist-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/InstrumentSerif-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <symbol id="arrow" viewBox="0 0 24 24">
+          <path
+            d="M5 12h14m-6-6 6 6-6 6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="external" viewBox="0 0 24 24">
+          <path
+            d="M6 18 18 6M6 6h12v12"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="apple" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M17.04 12.38c.02 3.03 2.66 4.04 2.69 4.05-.02.07-.42 1.45-1.39 2.88-.84 1.23-1.72 2.46-3.1 2.48-1.35.03-1.79-.8-3.34-.8-1.56 0-2.05.78-3.34.83-1.33.05-2.34-1.34-3.19-2.56-1.73-2.5-3.05-7.05-1.27-10.13.88-1.53 2.45-2.5 4.15-2.53 1.3-.02 2.52.89 3.32.89.79 0 2.28-1.1 3.85-.94.66.03 2.51.27 3.7 2.02-.1.06-2.21 1.29-2.19 3.81ZM14.57 4.85c.71-.86 1.18-2.06 1.05-3.25-1.02.04-2.27.68-3.01 1.54-.66.76-1.23 1.98-1.07 3.15 1.13.09 2.29-.59 3.03-1.44Z"
+          />
+        </symbol>
+        <symbol id="windows" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="m2 4.7 8.3-1.15v8H2zm9.3-1.29L22 1.9v9.65H11.3zM2 12.55h8.3v8L2 19.4zm9.3 0H22v9.55l-10.7-1.5z"
+          />
+        </symbol>
+        <symbol id="linux" viewBox="0 0 24 24">
+          <path
+            d="M12 1.7c-3.1 0-4.2 2.5-4 5.8.1 2.1-.8 3.2-1.7 4.8-.9 1.5-1.5 3.3-1.3 4.7l-2 2.1c-.7 1.1 1.4 2 3.3 2.2 1.3.2 2.1-.3 2.6-1 1.9.9 4.3.9 6.2 0 .5.7 1.3 1.2 2.6 1 1.9-.2 4-1.1 3.3-2.2l-2-2.1c.2-1.4-.4-3.2-1.3-4.7-.9-1.6-1.8-2.7-1.7-4.8.2-3.3-.9-5.8-4-5.8Z"
+            fill="currentColor"
+          />
+          <ellipse
+            cx="12"
+            cy="14.4"
+            rx="4.1"
+            ry="5"
+            fill="var(--icon-cutout,#f7f7f2)"
+          />
+          <ellipse
+            cx="10.4"
+            cy="6.8"
+            rx="1.05"
+            ry="1.5"
+            fill="var(--icon-cutout,#f7f7f2)"
+          />
+          <ellipse
+            cx="13.6"
+            cy="6.8"
+            rx="1.05"
+            ry="1.5"
+            fill="var(--icon-cutout,#f7f7f2)"
+          />
+          <path
+            d="m9.8 9.3 2.2 1.3 2.2-1.3L12 8Z"
+            fill="var(--icon-cutout,#f7f7f2)"
+          />
+        </symbol>
+        <symbol id="github" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.12.67-3.78-1.33-3.78-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.15 1.72 1.15 1 .1.2 2.2 3.29 1.51.1-.72.39-1.22.71-1.5-2.49-.28-5.1-1.25-5.1-5.54 0-1.22.43-2.22 1.15-3-.11-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.22 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.25-5.12 5.53.4.35.76 1.03.76 2.08v3.09c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"
+          />
+        </symbol>
+        <symbol id="split" viewBox="0 0 24 24">
+          <rect
+            x="3"
+            y="4"
+            width="18"
+            height="16"
+            rx="3"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          />
+          <path d="M12 4v16" stroke="currentColor" stroke-width="1.5" />
+        </symbol>
+        <symbol id="folder" viewBox="0 0 24 24">
+          <path
+            d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v10H3Z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linejoin="round"
+          />
+        </symbol>
+        <symbol id="lock" viewBox="0 0 24 24">
+          <rect
+            x="5"
+            y="10"
+            width="14"
+            height="11"
+            rx="3"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          />
+          <path
+            d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+        </symbol>
+      </defs>
+    </svg>
+    <header class="site-header wrap">
+      <a class="wordmark" href="#" aria-label="Crescent home"
+        ><img
+          src="assets/crescent-mark.png"
+          alt=""
+          width="37"
+          height="37"
+        />crescent<span class="wordmark-dot">.</span></a
+      >
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#browser">The browser</a
+        ><a href="#your-network">Your network</a
+        ><a href="#open">For builders</a>
+      </nav>
+      <div class="nav-actions">
+        <a
+          class="github-nav"
+          href="https://github.com/Crescent-Browser"
+          aria-label="Crescent on GitHub"
+          ><svg><use href="#github" /></svg></a
+        ><a class="button button-small button-dark" href="#beta"
+          >Follow the beta <svg><use href="#arrow" /></svg></a
+        ><button
+          class="menu-toggle"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+        >
+          <span></span><span></span>
+        </button>
+      </div>
+    </header>
+    <nav
+      class="mobile-nav wrap"
+      id="mobile-nav"
+      aria-label="Mobile navigation"
+      hidden
+    >
+      <a href="#browser">The browser</a><a href="#your-network">Your network</a
+      ><a href="#open">For builders</a><a href="#questions">Questions</a>
+    </nav>
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy wrap">
+          <a class="release-tag" href="#beta"
+            ><span class="status-dot"></span>A new browser is taking shape
+            <svg><use href="#arrow" /></svg
+          ></a>
+          <h1 id="hero-title">Your browser.<br /><em>On your terms.</em></h1>
+          <p>
+            A familiar flow. A freer future.<br />A Chromium browser for people
+            who love the web.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#beta"
+              >Meet your next browser <svg><use href="#arrow" /></svg></a
+            ><a class="text-link" href="#browser"
+              >Take a look <span aria-hidden="true">↓</span></a
+            >
+          </div>
+          <div
+            class="platform-line"
+            aria-label="In development for macOS, Windows and Linux"
+          >
+            <span>Made for</span><svg><use href="#apple" /></svg
+            ><span>macOS</span><span class="platform-divider"></span
+            ><svg><use href="#windows" /></svg><span>Windows</span
+            ><span class="platform-divider"></span
+            ><svg><use href="#linux" /></svg><span>Linux</span>
+          </div>
+        </div>
+        <div class="hero-stage wrap">
+          <span class="stage-spark spark-one" aria-hidden="true">✦</span
+          ><span class="stage-spark spark-two" aria-hidden="true">✧</span>
+          <div class="stage-label" aria-hidden="true">
+            <span>LESS FRICTION.</span><span>MORE POSSIBILITY.</span>
+          </div>
+          <figure class="hero-window">
+            <div
+              class="hero-art"
+              role="img"
+              aria-label="Illustrative Crescent preview using an actual Afterglow browser frame with an original sample editorial page."
+            >
+              <img
+                class="hero-shot"
+                src="assets/afterglow-native.png"
+                width="1440"
+                height="900"
+                fetchpriority="high"
+                alt=""
+              />
+              <div class="sample-page">
+                <div class="sample-nav">
+                  <b>fieldnotes<span>.</span></b>
+                  <div>Journal &nbsp;&nbsp; Places &nbsp;&nbsp; About</div>
+                  <small>VOL. 01 / AN OPEN WINDOW</small>
+                </div>
+                <div class="sample-body">
+                  <div class="sample-eyebrow">
+                    A JOURNAL FOR THE WANDERING MIND
+                  </div>
+                  <div class="sample-intro">
+                    <h3>A little room<br />to wander.</h3>
+                    <p>
+                      Follow a thought. Find a new perspective. The best ideas
+                      rarely travel in straight lines.
+                    </p>
+                  </div>
+                  <svg
+                    class="sample-landscape"
+                    viewBox="0 0 1000 360"
+                    preserveAspectRatio="xMidYMid slice"
+                    aria-hidden="true"
+                  >
+                    <rect width="1000" height="360" fill="#dbe1ce" />
+                    <circle cx="715" cy="125" r="80" fill="#f4e4b8" />
+                    <path
+                      d="M0 241 Q170 105 330 218 T635 215 T1000 186 V360 H0"
+                      fill="#adb8a1"
+                    />
+                    <path
+                      d="M0 300 Q170 163 370 269 T720 226 T1000 260 V360 H0"
+                      fill="#7e927c"
+                    />
+                    <path
+                      d="M0 332 Q210 239 437 323 T800 294 T1000 310 V360 H0"
+                      fill="#536f60"
+                    />
+                    <path
+                      d="M0 360 Q320 295 500 359 T1000 330 V360"
+                      fill="#365549"
+                    />
+                    <path
+                      d="M570 360 Q558 327 580 304 Q600 281 582 273"
+                      fill="none"
+                      stroke="#dce3c7"
+                      stroke-width="2"
+                      opacity=".6"
+                    />
+                  </svg>
+                  <div class="sample-caption">
+                    <span>01 — Somewhere between here and the next idea.</span
+                    ><span>ILLUSTRATION / FIELDNOTES</span>
+                  </div>
+                  <div class="sample-bottom">
+                    <span
+                      >Good things happen when you follow your curiosity.</span
+                    ><small>Read the journal ↗</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </figure>
+          <div class="stage-foot">
+            <span><i></i> A little more space for what matters.</span
+            ><span>INTERFACE PREVIEW · ILLUSTRATIVE SAMPLE PAGE</span>
+          </div>
+        </div>
+      </section>
+      <section class="intro wrap section-space" id="browser">
+        <div class="eyebrow">HELLO, CRESCENT</div>
+        <div>
+          <h2>
+            The browser you fell for.<br /><em>The freedom you wished for.</em>
+          </h2>
+          <p>
+            The sidebar. The shortcuts. That feeling when everything is right
+            where you left it. We’re building Crescent to bring that flow
+            forward — with a future you can help shape.
+          </p>
+        </div>
+      </section>
+      <section class="features wrap" aria-label="Crescent features">
+        <article>
+          <svg><use href="#folder" /></svg>
+          <h3>A place for every thought.</h3>
+          <p>
+            Spaces, folders, and pinned tabs keep projects in order. Separate
+            Profiles keep work and life apart.
+          </p>
+          <span class="mini-note">FAMILIAR FROM THE FIRST TAB</span>
+        </article>
+        <article>
+          <svg><use href="#split" /></svg>
+          <h3>Two pages. One train of thought.</h3>
+          <p>
+            Keep your reference beside your work. Split panes make a little room
+            for the bigger picture.
+          </p>
+          <span class="mini-note">LESS WINDOW JUGGLING</span>
+        </article>
+        <article>
+          <span class="command-icon" aria-hidden="true">⌘</span>
+          <h3>Stay in your flow.</h3>
+          <p>
+            A command bar when you need it. Shortcuts where you expect them.
+            <kbd>⌘</kbd><kbd>D</kbd> to pin a page and keep going.
+          </p>
+          <span class="mini-note">CTRL+D ON WINDOWS & LINUX</span>
+        </article>
+      </section>
+      <section
+        class="look-section wrap section-space"
+        aria-labelledby="look-heading"
+      >
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">A LITTLE MORE YOU</div>
+            <h2 id="look-heading">Make yourself <em>at home.</em></h2>
+          </div>
+          <p>
+            Quiet sage. A touch of Prism.<br />Your browser should feel like
+            your space.
+          </p>
+        </div>
+        <div class="theme-tabs" role="tablist" aria-label="Browser themes">
+          <button
+            id="tab-afterglow"
+            role="tab"
+            aria-selected="true"
+            aria-controls="theme-panel"
+            data-theme="afterglow"
+          >
+            <i class="swatch sage"></i>Afterglow</button
+          ><button
+            id="tab-prism"
+            role="tab"
+            aria-selected="false"
+            aria-controls="theme-panel"
+            tabindex="-1"
+            data-theme="prism"
+          >
+            <i class="swatch prism"></i>Prism</button
+          ><button
+            id="tab-meridian"
+            role="tab"
+            aria-selected="false"
+            aria-controls="theme-panel"
+            tabindex="-1"
+            data-theme="meridian"
+          >
+            <i class="swatch fog"></i>Meridian
+          </button>
+        </div>
+        <figure
+          class="theme-panel"
+          id="theme-panel"
+          role="tabpanel"
+          aria-labelledby="tab-afterglow"
+          tabindex="0"
+        >
+          <button
+            class="image-expand"
+            id="theme-expand"
+            data-lightbox="assets/afterglow-native.png"
+            data-caption="Afterglow · actual macOS development build, sample example.org page"
+            aria-label="Enlarge Afterglow theme screenshot"
+          >
+            <img
+              id="theme-image"
+              src="assets/afterglow-native.png"
+              width="1440"
+              height="900"
+              loading="lazy"
+              alt="Actual Crescent development build in the light sage Afterglow theme."
+            />
+          </button>
+          <figcaption>
+            <span id="theme-description"
+              >Soft color. A quieter frame. A little room to breathe.</span
+            ><span class="shot-label"
+              >ACTUAL DEVELOPMENT SCREENSHOT
+              <span aria-hidden="true">↗</span></span
+            >
+          </figcaption>
+        </figure>
+      </section>
+      <section class="network-section" id="your-network">
+        <div class="wrap network-inner">
+          <div class="network-copy">
+            <div class="eyebrow">
+              <span class="outlined-dot"></span> THE PERSONAL HUB · IN
+              DEVELOPMENT
+            </div>
+            <h2>Your devices.<br />Your network.<br /><em>Your call.</em></h2>
+            <p>
+              A browser belongs to the person using it. Crescent Hub is being
+              built to connect your devices through a computer you control, on
+              your own network.
+            </p>
+            <a class="text-link light-link" href="#questions"
+              >How personal hosting will work <svg><use href="#arrow" /></svg
+            ></a>
+          </div>
+          <div
+            class="network-visual"
+            aria-label="Planned architecture: Mac, Windows and Linux devices connected to a personal Crescent Hub"
+          >
+            <div class="network-orbit orbit-one"></div>
+            <div class="network-orbit orbit-two"></div>
+            <svg class="network-lines" viewBox="0 0 500 400" aria-hidden="true">
+              <path
+                d="M100 95 250 200 410 100M250 200 343 326M250 200 85 307"
+              />
+              <circle cx="250" cy="200" r="6" />
+            </svg>
+            <div class="network-device device-mac">
+              <div class="device-screen">
+                <svg><use href="#apple" /></svg><span>YOUR MAC</span>
+              </div>
+              <div class="device-base"></div>
+            </div>
+            <div class="network-device device-win">
+              <div class="device-screen">
+                <svg><use href="#windows" /></svg><span>YOUR PC</span>
+              </div>
+              <div class="device-base"></div>
+            </div>
+            <div class="network-device device-linux">
+              <div class="device-screen">
+                <svg><use href="#linux" /></svg><span>YOUR LINUX</span>
+              </div>
+              <div class="device-base"></div>
+            </div>
+            <div class="hub-node">
+              <img
+                src="assets/crescent-mark.png"
+                alt=""
+                width="52"
+                height="52"
+              /><span>your hub</span><small>YOUR HARDWARE</small>
+            </div>
+            <span class="network-annotation">A connection you control.</span
+            ><span class="network-caption">ARCHITECTURE PREVIEW</span>
+          </div>
+          <div class="network-bottom">
+            <div>
+              <svg><use href="#lock" /></svg
+              ><span>Cookies & site storage never sync.</span>
+            </div>
+            <div>
+              <span class="tiny-crescent" aria-hidden="true">☾</span
+              ><span
+                >Personal hosting across all three desktop OSes is
+                planned.</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="builders wrap section-space" id="open">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">BUILT IN THE OPEN</div>
+            <h2>For the curious.<br /><em>And the people who build.</em></h2>
+          </div>
+          <p>
+            The web is better when it’s open.<br />We think your browser should
+            be, too.
+          </p>
+        </div>
+        <div class="builders-grid">
+          <article class="open-card">
+            <span class="code-decoration" aria-hidden="true"
+              >{
+              <img
+                src="assets/crescent-mark.png"
+                alt=""
+                width="86"
+                height="86"
+              />
+              }</span
+            >
+            <div>
+              <h3>A future you can build on.</h3>
+              <p>
+                Open source is the direction, from the browser to the personal
+                Hub. Explore the work, raise an issue, or help shape what comes
+                next.
+              </p>
+              <a class="text-link" href="https://github.com/Crescent-Browser"
+                >Build with us on GitHub <svg><use href="#external" /></svg
+              ></a>
+            </div>
+          </article>
+          <div class="builder-notes">
+            <article>
+              <span class="note-number">01</span>
+              <div>
+                <h3>Chromium at heart.</h3>
+                <p>
+                  A familiar foundation for the modern web. Built around the
+                  sites and developer tools you already use.
+                </p>
+              </div>
+            </article>
+            <article>
+              <span class="note-number">02</span>
+              <div>
+                <h3>Bring your favorite extensions.</h3>
+                <p>
+                  Chrome extension support is a core requirement. Compatibility
+                  testing is underway for the beta.
+                </p>
+              </div>
+            </article>
+            <article>
+              <span class="note-number">03</span>
+              <div>
+                <h3>Fast is the baseline.</h3>
+                <p>
+                  We’re working toward a faster, steadier everyday browser. Arc
+                  and Dia comparisons will follow reproducible benchmarks.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="move-section wrap section-space" id="move">
+        <div class="move-copy">
+          <div class="eyebrow">YOUR NEXT CHAPTER</div>
+          <h2>A fresh start.<br /><em>Without starting over.</em></h2>
+          <p>
+            Your browser is full of little things that matter. Crescent’s import
+            preview is being built to help you bring your setup along, one
+            Profile at a time.
+          </p>
+          <div
+            class="source-browsers"
+            aria-label="Planned primary import sources"
+          >
+            <span>Arc</span><span>Chrome</span><span>Dia</span
+            ><span>Firefox</span><span>Zen</span>
+          </div>
+          <a class="text-link" href="#beta"
+            >Be here for the beta <svg><use href="#arrow" /></svg
+          ></a>
+          <p class="quiet-note">
+            Import preview is in development. Source coverage varies; full
+            migration is still being tested.
+          </p>
+        </div>
+        <div class="import-visual">
+          <div class="import-orbit" aria-hidden="true"></div>
+          <div class="import-sheet">
+            <div class="sheet-head">
+              <span class="sheet-mark">↳</span><span>Make the move.</span
+              ><span class="sheet-badge">PREVIEW</span>
+            </div>
+            <p>A little less setup. A lot more you.</p>
+            <ol>
+              <li>
+                <span>01</span>
+                <div>
+                  <strong>Choose your browser</strong
+                  ><small>A familiar place to start.</small>
+                </div>
+                <span class="sheet-check" aria-hidden="true">↗</span>
+              </li>
+              <li>
+                <span>02</span>
+                <div>
+                  <strong>Review your Profiles</strong
+                  ><small>See what’s coming with you.</small>
+                </div>
+                <span class="sheet-check" aria-hidden="true">↗</span>
+              </li>
+              <li>
+                <span>03</span>
+                <div>
+                  <strong>Find your new space</strong
+                  ><small>Then make it your own.</small>
+                </div>
+                <img src="assets/favicon.png" alt="" width="22" height="22" />
+              </li>
+            </ol>
+            <div class="sheet-foot">
+              <svg><use href="#lock" /></svg>Your source browser stays yours.
+            </div>
+          </div>
+          <span class="import-caption"
+            >ILLUSTRATION OF THE PLANNED IMPORT FLOW</span
+          >
+        </div>
+      </section>
+      <section class="beta-section wrap section-space" id="beta">
+        <div class="beta-heading">
+          <span class="release-tag"
+            ><span class="status-dot"></span>BUILDING TOWARD BETA</span
+          >
+          <h2>A new home for<br /><em>your internet.</em></h2>
+          <p>
+            Made for every kind of desktop.<br />Follow along. Help build it.
+            Make it yours.
+          </p>
+        </div>
+        <div class="os-cards">
+          <article>
+            <svg class="os-icon"><use href="#apple" /></svg>
+            <h3>Crescent for macOS</h3>
+            <p>Native development build</p>
+            <span class="os-status"><i></i>Development builds tested</span
+            ><button class="button button-dark" data-platform="macos">
+              Follow macOS progress <svg><use href="#arrow" /></svg>
+            </button>
+          </article>
+          <article>
+            <svg class="os-icon"><use href="#windows" /></svg>
+            <h3>Crescent for Windows</h3>
+            <p>A first-class desktop target</p>
+            <span class="os-status planned"
+              ><i></i>Planned · builds pending</span
+            ><button class="button button-outline" data-platform="windows">
+              Follow Windows progress <svg><use href="#arrow" /></svg>
+            </button>
+          </article>
+          <article>
+            <svg class="os-icon"><use href="#linux" /></svg>
+            <h3>Crescent for Linux</h3>
+            <p>Your distro deserves a good browser</p>
+            <span class="os-status planned"
+              ><i></i>Planned · builds pending</span
+            ><button class="button button-outline" data-platform="linux">
+              Follow Linux progress <svg><use href="#arrow" /></svg>
+            </button>
+          </article>
+        </div>
+        <p class="beta-note">
+          Crescent is in active development. Public beta downloads aren’t
+          available yet.
+        </p>
+      </section>
+      <section class="faq wrap section-space" id="questions">
+        <div>
+          <div class="eyebrow">A FEW GOOD QUESTIONS</div>
+          <h2>A little more<br /><em>before you move.</em></h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>
+              Can I download Crescent today?<span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Public beta downloads aren’t available yet. The macOS development
+              app has passed selected native tests; Windows and Linux are
+              targets awaiting builds and validation. Follow the GitHub
+              organization for release announcements.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Is Crescent open source?<span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Crescent is being built toward an open-source browser, mobile app,
+              and personal Hub. The browser project’s license selection is still
+              pending. Source visibility and a finalized open-source license
+              will be confirmed before a public release.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Can I host it on my own network?<span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              That’s the plan. Crescent Hub is intended to run on a computer you
+              control, on macOS, Windows, or Linux, to connect your devices.
+              Secure pairing, authenticated transport, and encryption are still
+              being implemented and reviewed. It is not yet a production
+              self-hosted service.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Will my logins sync between devices?<span aria-hidden="true"
+                >+</span
+              >
+            </summary>
+            <p>
+              No. Cookies and site storage never sync. The planned continuity
+              system focuses on your browsing organization, while keeping each
+              device’s website sessions local.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Can I move from Arc or another browser?<span aria-hidden="true"
+                >+</span
+              >
+            </summary>
+            <p>
+              Arc, Chrome, Zen, Dia, and Firefox are the primary import targets.
+              Import previews and synthetic-fixture tests are in development.
+              Full real-world migration, including extensions and split layouts,
+              is still being validated.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Is it faster than Arc and Dia?<span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Speed and stability are goals. We haven’t completed comparable
+              release benchmarks, so we won’t give you an invented number. We’ll
+              publish the method and results when the builds are ready to
+              compare.
+            </p>
+          </details>
+        </div>
+      </section>
+      <section class="closing wrap">
+        <img src="assets/crescent-mark.png" alt="" width="62" height="62" />
+        <h2>The web is yours.<br /><em>Keep it that way.</em></h2>
+        <a class="button button-dark" href="https://github.com/Crescent-Browser"
+          >Help shape Crescent <svg><use href="#external" /></svg
+        ></a>
+      </section>
+    </main>
+    <footer class="site-footer wrap">
+      <div class="footer-top">
+        <a class="wordmark" href="#" aria-label="Crescent home"
+          ><img
+            src="assets/crescent-mark.png"
+            alt=""
+            width="32"
+            height="32"
+          />crescent<span class="wordmark-dot">.</span></a
+        ><span>Your browser. On your terms.</span>
+        <nav aria-label="Footer navigation">
+          <a href="https://github.com/Crescent-Browser"
+            >GitHub <svg><use href="#external" /></svg></a
+          ><a href="#questions">Questions</a><a href="privacy.html">Privacy</a
+          ><a href="notices.html">Credits</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Crescent. Built with a little more possibility.</span
+        ><span
+          >An independent project. Not affiliated with Arc, Dia, or The Browser
+          Company.</span
+        >
+      </div>
+    </footer>
+    <dialog id="platform-dialog" aria-labelledby="platform-title">
+      <button class="dialog-close" aria-label="Close platform details">×</button
+      ><span class="eyebrow">THE NEXT CHAPTER</span>
+      <h2 id="platform-title">Crescent for macOS</h2>
+      <p id="platform-description"></p>
+      <div class="dialog-status">
+        <span class="status-dot"></span><span id="platform-status"></span>
+      </div>
+      <a class="button button-dark" href="https://github.com/Crescent-Browser"
+        >Follow Crescent on GitHub <svg><use href="#external" /></svg
+      ></a>
+      <p class="dialog-footnote">
+        Release announcements will appear on GitHub. No email address required.
+      </p>
+    </dialog>
+    <dialog
+      id="image-dialog"
+      class="lightbox"
+      aria-label="Enlarged Crescent screenshot"
+    >
+      <button class="dialog-close" aria-label="Close screenshot">×</button
+      ><img id="lightbox-image" alt="" />
+      <p id="lightbox-caption"></p>
+    </dialog>
+  </body>
+</html>
