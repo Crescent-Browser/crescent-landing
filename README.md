@@ -13,7 +13,7 @@ npm run check
 npm run build
 ```
 
-`public/` is the website source. `dist/` is the static build. The development server binds only to loopback. GitHub Pages deployment is configured in `.github/workflows/pages.yml`. A custom domain has not been configured.
+`public/` is the website source. `dist/` is the static build. Production HTML uses content-addressed script and stylesheet filenames to avoid stale assets after a deployment; original paths remain available for cached older pages. The development server binds only to loopback. GitHub Pages deployment is configured in `.github/workflows/pages.yml`. A custom domain has not been configured.
 
 ## Source layout
 
