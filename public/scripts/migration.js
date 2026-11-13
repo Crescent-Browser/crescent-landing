@@ -79,21 +79,29 @@
     document.querySelectorAll('[data-import-source]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.importSource === name)));
     feedback.textContent = description(name);
   }
-  document.querySelectorAll('[data-import-source]').forEach(button => button.addEventListener('click', () => select(button.dataset.importSource)));
-  playButton.addEventListener('click', () => {
+  function playMove() {
     stopMove();
     feedback.textContent = 'Previewing the move: the same favorite tabs and custom names…';
     if (reduce.matches) {
       feedback.textContent = current + ' → Crescent · sample setup preview. Migration in development.';
       return;
     }
+    // Restart the CSS animation even when switching sources mid-move.
+    void scene.offsetWidth;
     scene.classList.add('is-transferring');
     playButton.disabled = true;
     finishTimer = setTimeout(() => {
       stopMove();
       feedback.textContent = current + ' → Crescent · sample setup preview. Migration in development.';
     }, 2100);
-  });
+  }
+  document.querySelectorAll('[data-import-source]').forEach(button => button.addEventListener('click', () => {
+    const name = button.dataset.importSource;
+    if (name === current) return;
+    select(name);
+    playMove();
+  }));
+  playButton.addEventListener('click', playMove);
   reduce.addEventListener('change', () => {
     if (reduce.matches) {
       stopMove();
