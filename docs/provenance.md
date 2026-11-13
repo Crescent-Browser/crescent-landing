@@ -18,7 +18,7 @@ All browser, phone, account, article, import, and connection examples are synthe
 
 Native theme colors come from the pure C++ resolver. Prism ports the seeded native facet algorithm and current expanded-sidebar layout policy. `docs/theme-provenance.json` retains implementation hashes and rendering parameters. The phone adaptation remains a proposal.
 
-The landing uses evergreen presentation copy. Wide desktop hero devices are visible at page load and retain their floating motion. Browser-specific migration windows and five platform choices are interactive illustrations. No new product-release evidence is implied by these presentation changes.
+The landing uses evergreen presentation copy. Wide desktop hero devices are visible at page load and retain their floating motion. Browser-specific migration windows and five platform choices are interactive illustrations. The iOS and Android marks use monochrome CSS masks that inherit the same color as the desktop symbols; their source SVGs remain unchanged. No new product-release evidence is implied by these presentation changes.
 
 ## Product boundaries
 

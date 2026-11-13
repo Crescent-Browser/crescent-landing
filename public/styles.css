@@ -2322,7 +2322,7 @@ body{background:#f7f8fc}
 .platform-list { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:7px; width:100%; }
 .platform-list > button { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; border:1px solid transparent; border-radius:14px; background:transparent; color:#846395; padding:15px 5px 12px; cursor:pointer; font-family:inherit; min-width:0; }
 .platform-list > button[aria-selected="true"] { border-color:#dfccf2; background:#f3eafd; color:#7041aa; }.platform-list > button:hover { background:#f7f0fd; }
-.platform-list svg,.platform-list img { width:28px; height:28px; object-fit:contain; }.platform-list strong { font-size:11px; font-weight:450; }.platform-list svg { --os-cut:#fffafd; }
+.platform-list svg,.platform-list .platform-logo { width:28px; height:28px; object-fit:contain; }.platform-list .platform-logo { display:block; background:currentColor; -webkit-mask:var(--platform-mark) center/contain no-repeat; mask:var(--platform-mark) center/contain no-repeat; }.platform-logo-ios { --platform-mark:url("assets/brands/apple.svg"); }.platform-logo-android { --platform-mark:url("assets/brands/android.svg"); }.platform-list strong { font-size:11px; font-weight:450; }.platform-list svg { --os-cut:#fffafd; }
 .platform-panel { display:flex; align-items:center; gap:20px; padding:25px; border-radius:15px; background:#faf6ff; margin-top:16px; min-height:145px; }.platform-device { display:grid; place-items:center; width:62px; height:62px; flex-shrink:0; border-radius:15px; color:#a587bd; background:#eee3fa; }.platform-device svg { width:42px; height:38px; fill:none; stroke:currentColor; stroke-width:1.2; stroke-linecap:round; stroke-linejoin:round; }.platform-panel[data-device="mobile"] .platform-device svg { height:42px; width:32px; }.platform-panel strong { font-size:15px; font-weight:500; }.platform-panel p { color:#927c9f; font-size:11px; line-height:1.7; margin:7px 0; max-width:290px; }.platform-panel a { color:#8b62b0; font-size:10px; text-decoration:none; }
 .open-story { display:grid; grid-template-columns:.9fr 1.1fr; gap:90px; align-items:center; padding:10px 40px; }
 .open-story h2 { font-size:clamp(34px,3.6vw,52px); }
@@ -2532,7 +2532,7 @@ body{background:#f7f8fc}
  .platform-list { gap:2px; }
  .platform-list > button { border-radius:11px; padding-inline:3px; }
  .platform-list strong { font-size:10px; }
- .platform-list svg,.platform-list img { width:25px; height:25px; }
+ .platform-list svg,.platform-list .platform-logo { width:25px; height:25px; }
  .open-mark { min-height:230px; }
  .open-mark img { width:180px; height:180px; }
  .open-mark:before { width:210px; height:210px; }

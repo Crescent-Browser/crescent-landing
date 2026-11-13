@@ -15,7 +15,7 @@ Sixteen supplied SVGs were retrieved through the Open Brand Assets `find-brand-l
 
 Collection licenses do not transfer vendor trademark rights. Marks identify example websites inside fictional browser interfaces; no partnership, endorsement, or integration support is asserted. The source manifest retains applicable usage conditions.
 
-Six additional browser/platform SVGs (Arc, Chrome, Zen, Firefox, Android, and Apple) come from SVGL revision `90f6de7026c5e75a9014dbf1f422792bd40b1802`, covered by the bundled SVGL notice. Dia’s original favicon comes from https://www.diabrowser.com/favicon.svg for editorial identification; no collection license or vendor endorsement is claimed. These files are also preserved byte-for-byte and recorded in the manifest. No logos are generated, redrawn, or recolored.
+Six additional browser/platform SVGs (Arc, Chrome, Zen, Firefox, Android, and Apple) come from SVGL revision `90f6de7026c5e75a9014dbf1f422792bd40b1802`, covered by the bundled SVGL notice. Dia’s original favicon comes from https://www.diabrowser.com/favicon.svg for editorial identification; no collection license or vendor endorsement is claimed. These files are also preserved byte-for-byte and recorded in the manifest. No source logo files are generated, redrawn, or modified. The iOS and Android platform marks use a monochrome CSS mask to match the desktop symbols.
 
 ## Original Crescent work
 
