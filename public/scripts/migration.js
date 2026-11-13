@@ -83,7 +83,7 @@
     stopMove();
     feedback.textContent = 'Previewing the move: the same favorite tabs and custom names…';
     if (reduce.matches) {
-      feedback.textContent = current + ' → Crescent · sample setup preview. Migration in development.';
+      feedback.textContent = current + ' → Crescent Browser · sample setup preview. Migration in development.';
       return;
     }
     // Restart the CSS animation even when switching sources mid-move.
@@ -92,7 +92,7 @@
     playButton.disabled = true;
     finishTimer = setTimeout(() => {
       stopMove();
-      feedback.textContent = current + ' → Crescent · sample setup preview. Migration in development.';
+      feedback.textContent = current + ' → Crescent Browser · sample setup preview. Migration in development.';
     }, 2100);
   }
   document.querySelectorAll('[data-import-source]').forEach(button => button.addEventListener('click', () => {

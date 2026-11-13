@@ -1150,7 +1150,7 @@ window.CrescentBrandAssets = {
 };
 window.CrescentBrandNames = {
   "google": "Google",
-  "crescent": "Crescent",
+  "crescent": "Crescent Browser",
   "github": "GitHub",
   "linear": "Linear",
   "slack": "Slack",

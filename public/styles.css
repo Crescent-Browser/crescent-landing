@@ -2916,3 +2916,12 @@ body{background:#f7f8fc}
  .prism-mark-reflection { opacity:.22; transition:none; }
  .prism-mark-tilt:before { display:none; }
 }
+
+/* Keep the full browser wordmark readable on narrow screens. */
+.concept-wordmark,.landing-footer-brand,.legal-brand { white-space:nowrap; }
+.legal-header { flex-wrap:wrap; gap:12px 20px; }
+.legal-header > a:last-child { white-space:nowrap; }
+@media(max-width:420px) {
+ .concept-wordmark { font-size:18px; letter-spacing:-.8px; }
+ .refined-page .concept-nav { gap:12px; }
+}

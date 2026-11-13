@@ -1,4 +1,4 @@
-/* Original Crescent preview. Synthetic content; no storage or network transport. */
+/* Original Crescent Browser preview. Synthetic content; no storage or network transport. */
 (() => {
   const tokens = window.CrescentNativeThemes;
   const assets = window.CrescentBrandAssets;
@@ -257,7 +257,7 @@
         ? "Medium"
         : index === 1
           ? "Studio notes."
-          : "Crescent / open") +
+          : "Crescent Browser / open") +
       '</strong><span>READ &amp; EXPLORE</span></header><div class="article-content"><p class="article-kicker">' +
       tab.publisher +
       "</p><h4>" +
@@ -291,7 +291,7 @@
   function browse() { return article() + toolbar() + pinToast(); }
   function shareView(chooseProfile=false) {
     const profileRows=Object.entries(profiles).map(([key,p])=>'<button class="share-profile-row" data-mobile-action="pin-to-profile" data-pin-profile="'+key+'"><span class="share-profile-avatar profile-'+key+'">'+p.name[0]+'</span><span><strong>'+p.name+'</strong><small>'+p.spaces[0]+' Space</small></span>'+svg('pin')+'</button>').join('');
-    return article()+toolbar()+'<div class="share-sheet-shade" data-mobile-action="browse"></div><section class="mobile-share-sheet"><div class="arc-sheet-handle"></div><header><div><strong>'+(chooseProfile?'Pin to a Profile':'Share this page')+'</strong><small>'+(chooseProfile?'PROFILES IN YOUR ACCOUNT':tabs[state.tab].domain)+'</small></div><button data-mobile-action="browse" aria-label="Close share sheet">×</button></header>'+(chooseProfile?'<div class="share-account"><span>C</span><div>Your Crescent account<small>Choose where this page belongs.</small></div></div><div class="share-profiles">'+profileRows+'</div>':'<div class="share-page-card"><span class="share-medium-mark"><img src="'+assets.medium+'" alt="Medium"></span><div><strong>'+tabs[state.tab].headline+'</strong><small>'+tabs[state.tab].domain+'</small></div></div><button class="share-pin-action" data-mobile-action="choose-pin-profile">'+svg('pin')+'<span>Pin to a Profile<small>Keep it with your tabs, across devices.</small></span>'+svg('arrow')+'</button><button class="share-cancel" data-mobile-action="browse">Cancel</button>')+'</section>';
+    return article()+toolbar()+'<div class="share-sheet-shade" data-mobile-action="browse"></div><section class="mobile-share-sheet"><div class="arc-sheet-handle"></div><header><div><strong>'+(chooseProfile?'Pin to a Profile':'Share this page')+'</strong><small>'+(chooseProfile?'PROFILES IN YOUR ACCOUNT':tabs[state.tab].domain)+'</small></div><button data-mobile-action="browse" aria-label="Close share sheet">×</button></header>'+(chooseProfile?'<div class="share-account"><span>C</span><div>Your Crescent Browser account<small>Choose where this page belongs.</small></div></div><div class="share-profiles">'+profileRows+'</div>':'<div class="share-page-card"><span class="share-medium-mark"><img src="'+assets.medium+'" alt="Medium"></span><div><strong>'+tabs[state.tab].headline+'</strong><small>'+tabs[state.tab].domain+'</small></div></div><button class="share-pin-action" data-mobile-action="choose-pin-profile">'+svg('pin')+'<span>Pin to a Profile<small>Keep it with your tabs, across devices.</small></span>'+svg('arrow')+'</button><button class="share-cancel" data-mobile-action="browse">Cancel</button>')+'</section>';
   }
   function deck() {
     return (
