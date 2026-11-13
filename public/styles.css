@@ -2892,3 +2892,27 @@ body{background:#f7f8fc}
  .download-dialog { padding:30px 22px; }
  .download-dialog h2 { font-size:28px; }
 }
+
+/* Floating Prism mark: keep the original artwork, light only its alpha shape. */
+.open-mark { isolation:isolate; }
+.prism-mark { position:relative; width:230px; height:230px; perspective:850px; --prism-rotate-x:-6deg; --prism-rotate-y:-11deg; --prism-light-x:32%; --prism-light-y:25%; --prism-shadow-x:0px; }
+.prism-mark-float { width:100%; height:100%; transform-style:preserve-3d; animation:prism-mark-float 7s ease-in-out infinite; }
+.prism-mark-tilt { position:relative; width:100%; height:100%; transform-style:preserve-3d; transform:rotateX(var(--prism-rotate-x)) rotateY(var(--prism-rotate-y)); transition:transform .65s cubic-bezier(.2,.7,.2,1); }
+.open-mark .prism-mark img { display:block; width:100%; height:100%; transform:translateZ(6px); filter:drop-shadow(var(--prism-shadow-x) 20px 16px #58317435); }
+.prism-mark-tilt:before,.prism-mark-reflection { position:absolute; inset:0; pointer-events:none; -webkit-mask:url("assets/crescent-mark.png") center/contain no-repeat; mask:url("assets/crescent-mark.png") center/contain no-repeat; }
+.prism-mark-tilt:before { content:''; background:linear-gradient(145deg,#8c5b89,#4d3e86 55%,#30b8cb); opacity:.5; transform:translate3d(3px,4px,-3px); }
+.prism-mark-reflection { transform:translateZ(6.5px); mix-blend-mode:screen; opacity:.55; background-image:radial-gradient(ellipse at var(--prism-light-x) var(--prism-light-y),#ffffffa6 0, #d8e7ff38 23%,transparent 55%),linear-gradient(115deg,transparent 33%,#c9b4ff18 40%,#fff9 47%,#b6ffff65 50%,transparent 59%); background-size:100% 100%,260% 100%; background-position:0 0,100% 50%; animation:prism-mark-reflection 9s ease-in-out infinite alternate; transition:opacity .6s; }
+.open-mark:hover .prism-mark-reflection { opacity:.78; }
+.prism-mark:after { content:''; position:absolute; width:55%; height:12px; left:22.5%; bottom:-9px; border-radius:50%; background:#7b4ba22b; filter:blur(10px); z-index:-1; animation:prism-mark-shadow 7s ease-in-out infinite; }
+[data-prism-active="false"] .prism-mark-float,[data-prism-active="false"] .prism-mark-reflection,[data-prism-active="false"]:after { animation-play-state:paused; }
+@keyframes prism-mark-float { 0%,100% { transform:translateY(2px) rotateZ(-1deg) rotateY(-2deg); } 50% { transform:translateY(-8px) rotateZ(1deg) rotateY(3deg); } }
+@keyframes prism-mark-reflection { from { background-position:0 0,100% 50%; } to { background-position:0 0,0% 50%; } }
+@keyframes prism-mark-shadow { 0%,100% { transform:scaleX(1); opacity:.75; } 50% { transform:scaleX(.82); opacity:.4; } }
+@media(max-width:760px) { .prism-mark { width:200px; height:200px; } }
+@media(max-width:480px) { .prism-mark { width:180px; height:180px; } }
+@media(prefers-reduced-motion:reduce) {
+ .prism-mark-float,.prism-mark-reflection,.prism-mark:after { animation:none; }
+ .prism-mark-tilt { transform:none; transition:none; }
+ .prism-mark-reflection { opacity:.22; transition:none; }
+ .prism-mark-tilt:before { display:none; }
+}

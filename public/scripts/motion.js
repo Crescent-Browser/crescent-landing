@@ -234,3 +234,59 @@
   updateButtons();
   updateReveal();
 })();
+
+
+/* Pointer-lit Prism artwork; motion is local and pauses off screen. */
+(() => {
+  const mark = document.querySelector('[data-prism-mark]');
+  if (!mark) return;
+  const area = mark.closest('.open-mark');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
+  const properties = ['--prism-rotate-x', '--prism-rotate-y', '--prism-light-x', '--prism-light-y', '--prism-shadow-x'];
+  let frame = null;
+  let point = null;
+  let visible = true;
+  function reset() {
+    if (frame !== null) cancelAnimationFrame(frame);
+    frame = null;
+    point = null;
+    properties.forEach(property => mark.style.removeProperty(property));
+  }
+  function sync() {
+    const active = visible && !document.hidden && !reduce.matches;
+    mark.dataset.prismActive = String(active);
+    if (!active || !finePointer.matches) reset();
+  }
+  function light() {
+    frame = null;
+    if (!point) return;
+    const bounds = mark.getBoundingClientRect();
+    const clamp = value => Math.max(-1, Math.min(1, value));
+    const x = clamp((point.x - bounds.left) / bounds.width * 2 - 1);
+    const y = clamp((point.y - bounds.top) / bounds.height * 2 - 1);
+    mark.style.setProperty('--prism-rotate-x', (-6 - y * 8).toFixed(2) + 'deg');
+    mark.style.setProperty('--prism-rotate-y', (-11 + x * 12).toFixed(2) + 'deg');
+    mark.style.setProperty('--prism-light-x', (50 + x * 35).toFixed(2) + '%');
+    mark.style.setProperty('--prism-light-y', (50 + y * 35).toFixed(2) + '%');
+    mark.style.setProperty('--prism-shadow-x', (-x * 5).toFixed(2) + 'px');
+  }
+  area.addEventListener('pointermove', event => {
+    if (event.pointerType === 'touch' || reduce.matches || !finePointer.matches || mark.dataset.prismActive !== 'true') return;
+    point = { x:event.clientX, y:event.clientY };
+    if (frame === null) frame = requestAnimationFrame(light);
+  }, { passive:true });
+  area.addEventListener('pointerleave', reset);
+  area.addEventListener('pointercancel', reset);
+  reduce.addEventListener('change', sync);
+  finePointer.addEventListener('change', sync);
+  document.addEventListener('visibilitychange', sync);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      visible = entries[0].isIntersecting;
+      sync();
+    });
+    observer.observe(area);
+  }
+  sync();
+})();

@@ -257,7 +257,7 @@
         ? "Medium"
         : index === 1
           ? "Studio notes."
-          : "crescent / open") +
+          : "Crescent / open") +
       '</strong><span>READ &amp; EXPLORE</span></header><div class="article-content"><p class="article-kicker">' +
       tab.publisher +
       "</p><h4>" +
