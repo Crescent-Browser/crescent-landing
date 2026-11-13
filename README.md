@@ -1,8 +1,8 @@
 # Crescent landing page
 
-A separate static landing page for Crescent Browser, using the Prism mark, Geist / Instrument Serif typography, sage and lilac surfaces, native development screenshots, and original editorial illustrations.
+The approved Crescent Browser landing page: Playground’s pink/lavender visual direction, the “Bring back the joy of browsing” headline, the Prism mark, and locally bundled Outfit typography.
 
-## Local development
+## Develop and build
 
 Requires Node.js 22+. No dependencies or installation step.
 
@@ -13,23 +13,30 @@ npm run check
 npm run build
 ```
 
-`public/` contains source; `dist/` is the static build. The development server binds to loopback only. Previewing locally does not deploy the website.
+`public/` is the website source. `dist/` is the static build. The development server binds only to loopback. GitHub Pages deployment is configured in `.github/workflows/pages.yml`. A custom domain has not been configured.
 
-## Working interactions
+## Source layout
 
-- Responsive desktop/phone navigation and anchor links.
-- Three-theme gallery with ARIA tabs and Arrow/Home/End keyboard controls.
-- Native screenshot lightbox with Escape, backdrop dismissal and native dialog focus handling.
-- Per-platform release-status dialogs linking to the Crescent GitHub organization.
-- FAQ disclosures, privacy page and attribution page.
-- Reduced-motion support, local fonts, no analytics/cookies/storage or external font requests.
+- `public/index.html`: the full landing page.
+- `public/styles.css`: the approved appearance, device illustrations, responsive layout, and legal-page styling.
+- `public/data.js`: the 28 native theme combinations and local brand-asset paths/names.
+- `public/scripts/prism.js`: native Prism facet drawing port.
+- `public/scripts/mobile.js`: the mobile UI and Share → Profile → pin-success demonstration.
+- `public/scripts/motion.js`: reversible device reveals, floating motion, and the pausable mobile tour.
+- `public/scripts/profiles.js`: the independent Work, Personal, and Creative carousel, with four Favorites and five app tabs per Profile.
+- `public/app.js`: command search, connection choices, and import presentation.
+- `public/assets/`: the Prism artwork, Outfit font/license, and original brand SVGs with source and license records.
 
-All CTAs reflect current development status. There are no invented installers, waitlist subscriptions, stars, testimonials, performance numbers, or security certifications.
+The phone and desktop examples use synthetic content and temporary in-page state. They do not read browser data, sign in, connect devices, persist selections, or perform real import/sync. There are no analytics, third-party scripts, remote font requests, cookies, or browser storage. Manual controls and reduced-motion preferences are supported.
 
-## Before publication
+The earlier design galleries, standalone review files, screenshot experiments, test fixtures, and QA receipts have been removed. Production checks remain in `tools/`.
 
-No production deployment or domain configuration is included or authorized by this work.
+## Publication and claims
 
-The organization is https://github.com/Crescent-Browser. Its source/release links can be made more specific once the browser repository and releases are public. Public-beta download links, shipping platform versions, finalized browser open-source license, independent security claims and comparative benchmarks require evidence before changing the current wording.
+The organization is https://github.com/Crescent-Browser. Release availability, complete import/extension compatibility, mobile feasibility, final browser licensing, security claims, and comparative speed measurements require evidence before changing the development wording. Cookies and site storage never sync.
 
-See [asset and claim provenance](docs/provenance.md) and [third-party notices](THIRD_PARTY_NOTICES.md). The repository does not select a license for Crescent Browser or alter the existing browser checkout.
+See [asset and claim provenance](docs/provenance.md) and [third-party notices](THIRD_PARTY_NOTICES.md). Website publication requires owner authorization.
+
+## Hosting and installer downloads
+
+The GitHub Pages workflow, same-origin release catalog, and OS-aware download buttons are prepared. See [hosting and domain setup](docs/hosting.md). Run `npm run test:releases` for the distribution-boundary checks and `npm run sync:releases` to refresh the catalog. Deployment is gated by `PAGES_ENABLED`; the owner approved publication to the temporary GitHub Pages URL.

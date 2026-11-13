@@ -1,45 +1,30 @@
-# Source and claim provenance
+# Landing source and claim provenance
 
-Prepared 2026-11-13 from the local Crescent Browser workspace, before a public beta.
+Updated 2026-11-13. The owner-approved landing design is now the production source in `public/`.
 
-## Brand assets
+## Assets
 
-- `public/assets/crescent-mark.png` ← `research/design/prism-apply/icons/mark-spectrum-1024.png`
-- `public/assets/favicon.png` ← `research/design/prism-apply/icons/favicon-spectrum-32.png`
-- Fonts ← `chromium/crescent/onboarding/fonts/` (license files included).
-- Typography, sage adaptation, lilac surfaces, original faceted mark ← approved `design/tokens.json` and the owner-approved themes.
+- Crescent mark and favicon: original Prism artwork from the browser workspace (`research/design/prism-apply/icons/mark-spectrum-1024.png` and `favicon-spectrum-32.png`).
+- Outfit: original unmodified variable font from the public Google Fonts collection. Source: https://raw.githubusercontent.com/google/fonts/main/ofl/outfit/Outfit%5Bwght%5D.ttf. Full OFL text is bundled beside it.
+- Sixteen application/network marks: retrieved with Open Brand Assets’ `find-brand-logo` workflow from SVGL and Gilbarbara Logos. The public source manifest, original variants, hashes, dates, and usage notes are retained under `public/assets/brands/`.
+- Google: Devicon v2.17.0, https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/google/google-original.svg . Its MIT notice remains bundled.
 
-## Native screenshots
+Only the selected Outfit font and assets used by the production page are retained. Native development captures, abandoned fonts, standalone review artifacts, and screenshot fixtures have been removed.
 
-- `afterglow-native.png` ← `research/design/themes-apply/14-afterglow-rounded-card.png`
-- `prism-native.png` ← `research/design/themes-apply/09-prism-spectrum.png`
-- `meridian-native.png` ← `research/design/themes-apply/06-meridian-light-fog.png`
-- `import-native.png` ← `research/design/prism-apply/onboarding/step-2-import-sources-spectrum.png` (retained reference, not currently displayed).
+## Product illustrations
 
-These are unaltered macOS development-build captures. Their synthetic example data is not the owner’s browsing content. They do not establish release readiness or non-macOS availability.
+All browser, phone, account, article, import, and connection examples are synthetic HTML/CSS illustrations. The Medium, GitHub, and Figma examples do not copy those sites’ pages. The owner’s Arc Search screenshots informed structure only; no personal browsing or source images are included.
 
-The hero is an HTML/CSS illustration: the Afterglow screenshot supplies the native frame; an original editorial sample is layered over its page area. The caption explicitly labels it an interface preview and illustrative sample page. The gallery displays unaltered captures. A new live screenshot attempt encountered blank page renderers in an isolated synthetic QA profile; those incomplete captures were not used. `tools/fixtures/studio.html` preserves the original sample page for a later real screenshot.
+Native theme colors come from the pure C++ resolver. Prism ports the seeded native facet algorithm and current expanded-sidebar layout policy. `docs/theme-provenance.json` retains implementation hashes and rendering parameters. The phone adaptation remains a proposal.
 
 ## Product boundaries
 
-Authority: browser `AGENTS.md`, `README.md`, and `docs/implementation-status.md`, reviewed 2026-11-13.
+The browser uses Chromium’s full browser foundation. Desktop scope includes macOS, Windows, and Linux; current native development evidence is on macOS. Release availability is not asserted. Full extension compatibility and complete migration remain under validation.
 
-- Native selected macOS tests pass; public beta distribution is not available.
-- Windows/Linux are desktop targets, not released or tested installers.
-- Personal Hub is a planned service. Do not claim deployed, reviewed secure self-hosting or completed cross-device continuity.
-- Cookies and site storage never sync.
-- Chromium is the chosen full-browser foundation. Full extension compatibility remains under verification.
-- Import preview exists; full import, real-world source coverage and extension migration remain under validation.
-- No measured Arc/Dia performance superiority is claimed. Do not add comparison numbers without reproducible results on comparable release builds.
-- Browser/mobile/personal Hub are intended to be open source; the browser project’s license is still pending. The page says “built in the open” and describes the open-source direction rather than asserting a finalized license.
-- Mobile is omitted from release CTAs because it has no validated release path here.
-- No AI integrations, offline article library, multiple-Hub feature, or standalone Rescue app is advertised.
+Crescent Mobile, same-account continuity, secure pairing, personal Hub transport, and Crescent Cloud are in development. Tailscale represents an optional network path around a personal Hub, not a deployed integration. Cookies and site storage never sync. No cloud-synced article library, AI integration, or comparative speed claim is advertised. The final browser license remains under completion. iOS feasibility under the no-WebKit constraint is unresolved.
 
-## Web references
+The website does not collect data or perform real sync, migration, sign-in, or pairing. The owner approved GitHub Pages hosting at the temporary project URL. A custom domain and DNS remain unconfigured.
 
-Browsed with shared browser tools on 2026-11-13:
+## References
 
-- https://zigzagbrowser.com/ — concise introduction, large app imagery, feature narrative, FAQ, migration emphasis.
-- https://www.diabrowser.com/ — restrained warm palette, spacious typography, product storytelling.
-
-No reference-site screenshots or assets are reused.
+Zigzag (https://zigzagbrowser.com/) and Dia (https://www.diabrowser.com/) informed the information hierarchy and product storytelling. No source code, screenshots, or artwork from those landing pages is included.

@@ -1,0 +1,27 @@
+{
+  "source": "chromium/crescent/themes.h + appearance.h",
+  "method": "Unmodified pure resolver and palette excerpts evaluated in a temporary C++20 harness; no browser process or preferences used",
+  "themesHash": "9438ba5fe7f82194cee4813de329c9aecf6bd5c79460a24b4dd68fe564ee8028",
+  "appearanceHash": "396dd35ec47aeed495ff502efd143b6ca450403f039f96f4faacdbeca69e8fed",
+  "themes": 5,
+  "combinations": 28,
+  "rendering": {
+    "implementation": "prism-backdrop.js ports PaintFacetField from the current native painter; it replaces the earlier approximate conic CSS pattern",
+    "nativeSources": {
+      "chromium/crescent/prism_mark.cc": "d1a91ead1e91111d4efe61de14ebbfffaa6de0276e7f7145d2889e933baa028a",
+      "chromium/crescent/prism_views.cc": "078f586a6c166e6c7afa89107c8f8c4909399b35dd0a4449c0fbc7e1884661a2",
+      "chromium/crescent/theme_apply.cc": "095fe4793d41718d426991a03992f08e6529b3fe53893b624ab0d258530355e8",
+      "chromium/crescent/sidebar_header_policy.h": "5858e28eb985eb0751cc01db7a5ffa2ea25eaa8319397def724e6194c0f456d6"
+    },
+    "parameters": {
+      "seed": 9,
+      "cell": 38,
+      "fade": 0.6,
+      "spectrumStrength": 0.2,
+      "monoStrength": 0.16,
+      "normalizedSidebarWidth": 240
+    },
+    "layout": "Expanded vertical sidebar hides the main toolbar for all five themes; compact navigation and address remain in the sidebar",
+    "limits": "HTML illustration port of native drawing logic; no pixel-equivalence certification."
+  }
+}

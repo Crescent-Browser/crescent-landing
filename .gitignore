@@ -1,6 +1,3 @@
 dist/
 node_modules/
 .DS_Store
-qa/*.png
-qa/*.webm
-qa/review.html
