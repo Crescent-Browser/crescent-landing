@@ -3,6 +3,20 @@
   const routing = globalThis.CrescentReleaseRouting;
   const status = document.querySelector('[data-download-status]');
   const list = document.querySelector('[data-download-list]');
+  const dialog = document.querySelector('#downloads');
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href="#downloads"]');
+    if (!link) return;
+    event.preventDefault();
+    dialog.showModal();
+  });
+  dialog.querySelector('.download-dialog-close').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => {
+    if (event.target !== dialog) return;
+    const bounds = dialog.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
+  });
+  if (location.hash === '#downloads') dialog.showModal();
   const names = { macos: 'macOS', windows: 'Windows', linux: 'Linux' };
   async function load() {
     try {
@@ -11,12 +25,17 @@
       const catalog = routing.validate(await response.json());
       if (!catalog.release || !catalog.downloads.length) {
         status.textContent = 'Public installers are not available yet. Follow the project for release updates.';
+        const updates = document.createElement('a');
+        updates.href = 'https://github.com/Crescent-Browser/crescent-browser/releases';
+        updates.textContent = 'Follow releases on GitHub ↗';
+        document.querySelector('[data-release-notes]').append(updates);
         document.querySelectorAll('[data-download-label]').forEach(el => { el.textContent = 'Get release updates'; });
         return;
       }
+      document.querySelector('.download-help').hidden = false;
       status.textContent = `Crescent Browser ${catalog.release.tag} · Choose your installer below.`;
       const faq = document.querySelector('[data-release-status]');
-      if (faq) faq.textContent = `Crescent Browser ${catalog.release.tag} is available. The Downloads section lists the platforms included in this release.`;
+      if (faq) faq.textContent = `Crescent Browser ${catalog.release.tag} is available. Downloads lists the platforms included in this release.`;
       for (const asset of catalog.downloads) {
         const item = document.createElement('li');
         const link = document.createElement('a');

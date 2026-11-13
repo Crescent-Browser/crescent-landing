@@ -20,6 +20,18 @@ Native theme colors come from the pure C++ resolver. Prism ports the seeded nati
 
 The landing uses evergreen presentation copy. Wide desktop hero devices are visible at page load and retain their floating motion. Browser-specific migration windows and five platform choices are interactive illustrations. The iOS and Android marks use monochrome CSS masks that inherit the same color as the desktop symbols; their source SVGs remain unchanged. No new product-release evidence is implied by these presentation changes.
 
+### Migration illustration references (2026-11-13)
+
+The five source windows are original HTML/CSS interpretations, not screenshots or copied UI code. All tabs, names, and page content are synthetic. The shared sample tabs illustrate the proposed migration experience; full setup and configuration parity remain in development.
+
+- Arc: its sidebar model, Favorites, pinned tabs, folders, and Spaces. Reference: https://resources.arc.net/ and the official https://arc.net/ migration overview.
+- Chrome: the familiar horizontal-tab configuration, rounded omnibox, profile control, tab groups, and bookmarks bar. Reference: https://www.google.com/chrome/ . Chrome also offers vertical tabs; the illustration deliberately shows its horizontal layout.
+- Zen: the official hero's warm dark sidebar, six Essentials, Workspaces, and inset page. Reference: https://zen-browser.app/ and https://zen-browser.app/media/hero-video/poster.webp .
+- Dia: the current official demo's cream/yellow sidebar, three Favorites, tab groups, and Chats control. Reference: https://www.diabrowser.com/ (hero video poster). This depicts Dia's controls only; Crescent has no AI integration.
+- Firefox: a horizontal-tab configuration with a separate address toolbar, tracking-protection shield, bookmarks, extensions, and application menu. Reference: https://www.firefox.com/en-US/browsers/desktop/ .
+
+The owner requested “New browser. Same look and config.” as the migration headline. It expresses the intended experience; the scene explicitly labels migration as in development. The bottom download section was removed; its verified release catalog is now accessible on demand through the download links.
+
 ## Product boundaries
 
 The browser uses Chromium’s full browser foundation. Desktop scope includes macOS, Windows, and Linux; current native development evidence is on macOS. Release availability is not asserted. Full extension compatibility and complete migration remain under validation.
