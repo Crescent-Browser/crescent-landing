@@ -5,6 +5,7 @@ const origin = 'https://crescentbrowser.com';
 const pages = new Map([
   ['index.html', origin + '/'],
   ['privacy.html', origin + '/privacy.html'],
+  ['terms.html', origin + '/terms.html'],
   ['notices.html', origin + '/notices.html'],
 ]);
 const titles = new Set();
